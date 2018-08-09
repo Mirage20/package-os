@@ -1,0 +1,270 @@
+<!--
+  ~ Copyright (c) 2017, WSO2 Inc. (http://www.wso2.org) All Rights Reserved.
+  ~
+  ~ WSO2 Inc. licenses this file to you under the Apache License,
+  ~ Version 2.0 (the "License"); you may not use this file except
+  ~ in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~   http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing,
+  ~ software distributed under the License is distributed on an
+  ~ "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+  ~ KIND, either express or implied.  See the License for the
+  ~ specific language governing permissions and limitations
+  ~ under the License.
+  -->
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <parent>
+        <groupId>org.ballerinalang</groupId>
+        <artifactId>os-connector-parent</artifactId>
+        <version>0.981.1-SNAPSHOT</version>
+        <relativePath>../pom.xml</relativePath>
+    </parent>
+
+    <modelVersion>4.0.0</modelVersion>
+    <artifactId>wso2-os</artifactId>
+    <packaging>jar</packaging>
+    <name>Ballerina - OS Commands</name>
+    <url>http://ballerinalang.org</url>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.ballerinalang</groupId>
+            <artifactId>ballerina-builtin</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.ballerinalang</groupId>
+            <artifactId>ballerina-core</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.ballerinalang</groupId>
+            <artifactId>ballerina-lang</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.ballerinalang</groupId>
+            <artifactId>ballerina-launcher</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.ballerinalang</groupId>
+            <artifactId>docerina</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.ballerinalang</groupId>
+            <artifactId>ballerina-io</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.ballerinalang</groupId>
+            <artifactId>ballerina-io</artifactId>
+            <type>zip</type>
+            <classifier>ballerina-binary-repo</classifier>
+        </dependency>
+    </dependencies>
+    <build>
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <filtering>true</filtering>
+            </resource>
+        </resources>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-dependency-plugin</artifactId>
+                <version>${maven.dependency.plugin.version}</version>
+                <inherited>false</inherited>
+                <executions>
+                    <execution>
+                        <id>unpack-dependencies</id>
+                        <phase>generate-resources</phase>
+                        <goals>
+                            <goal>unpack-dependencies</goal>
+                        </goals>
+                        <configuration>
+                            <includeClassifiers>ballerina-binary-repo</includeClassifiers>
+                            <outputDirectory>${project.build.directory}/lib</outputDirectory>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>properties-maven-plugin</artifactId>
+                <executions>
+                    <!-- Following execution is required to set ballerina home for docerina plugin -->
+                    <execution>
+                        <id>set-ballerina-home</id>
+                        <phase>prepare-package</phase>
+                        <goals>
+                            <goal>set-system-properties</goal>
+                        </goals>
+                        <configuration>
+                            <properties>
+                                <property>
+                                    <name>ballerina.home</name>
+                                    <value>${project.build.directory}</value>
+                                </property>
+                            </properties>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.ballerinalang</groupId>
+                <artifactId>docerina-maven-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>docerina</goal>
+                        </goals>
+                        <configuration>
+                            <outputDir>${project.build.directory}/api-docs</outputDir>
+                            <sourceRoot>${basedir}/src/main/ballerina</sourceRoot>
+                            <nativeCode>true</nativeCode>
+                            <packageFilter>compression</packageFilter>
+                            <orgName>wso2</orgName>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <artifactId>maven-assembly-plugin</artifactId>
+                <configuration>
+                    <descriptors>
+                        <descriptor>src/main/assembly/dist.xml</descriptor>
+                    </descriptors>
+                    <finalName>distribution</finalName>
+                    <appendAssemblyId>false</appendAssemblyId>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>make-assembly</id>
+                        <phase>install</phase>
+                        <goals>
+                            <goal>single</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-remote-resources-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>process</goal>
+                        </goals>
+                        <configuration>
+                            <resourceBundles>
+                                <resourceBundle>org.apache:apache-jar-resource-bundle:1.4</resourceBundle>
+                            </resourceBundles>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>exec-maven-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>gen-balo</id>
+                        <goals>
+                            <goal>java</goal>
+                        </goals>
+                        <phase>compile</phase>
+                        <configuration>
+                            <systemProperties>
+                                <systemProperty>
+                                    <key>BALLERINA_DEV_MODE_COMPILE</key>
+                                    <value>true</value>
+                                </systemProperty>
+                            </systemProperties>
+                            <arguments>
+                                <argument>false</argument>
+                                <argument>${basedir}/src/main/ballerina/</argument>
+                                <argument>${project.build.directory}/generated-balo/repo/wso2</argument>
+                                <argument>${project.build.directory}</argument>
+                                <argument>${project.version}</argument>
+                            </arguments>
+                            <mainClass>org.ballerinalang.stdlib.utils.GenerateBalo</mainClass>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-resources-plugin</artifactId>
+                <executions>
+                    <!-- Since  balo is needed by tests, here it is copied to target/lib where other balos
+                    are copied to -->
+                    <execution>
+                        <id>copy-os-balo</id>
+                        <phase>compile</phase>
+                        <goals>
+                            <goal>copy-resources</goal>
+                        </goals>
+                        <configuration>
+                            <outputDirectory>${project.build.directory}/lib/repo</outputDirectory>
+                            <resources>
+                                <resource>
+                                    <directory>${project.build.directory}/generated-balo/repo/</directory>
+                                </resource>
+                            </resources>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-shade-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>shade</goal>
+                        </goals>
+                        <configuration>
+                            <finalName>wso2-os-package-${project.version}</finalName>
+                            <artifactSet>
+                                <includes>
+                                    <include>org.ballerinalang:wso2-os</include>
+                                </includes>
+
+                            </artifactSet>
+                            <transformers>
+                                <transformer implementation="org.apache.maven.plugins.shade.resource.DontIncludeResourceTransformer">
+                                    <resources>
+                                        <resource>installation-scripts/install.bat</resource>
+                                        <resource>installation-scripts/install.sh</resource>
+                                        <resource>installation-scripts/uninstall.bat</resource>
+                                        <resource>installation-scripts/uninstall.sh</resource>
+                                        <resource>installation-scripts/README.txt</resource>
+                                    </resources>
+                                </transformer>
+                            </transformers>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+
+    <properties>
+        <!-- Path to the ballerina source directory -->
+        <ballerina.source.directory>
+            ${project.build.directory}/../src/main/ballerina
+        </ballerina.source.directory>
+        <package.repository.provider.class>
+            org.ballerinalang.net.fs.repository.BallerinaBuiltinPackageRepository
+        </package.repository.provider.class>
+
+        <!-- Path to the generated natives ballerina files temp directory -->
+        <generated.ballerina.source.directory>
+            ${project.build.directory}/../src/main/ballerina
+        </generated.ballerina.source.directory>
+        <mavan.findbugsplugin.exclude.file>findbugs-exclude.xml</mavan.findbugsplugin.exclude.file>
+    </properties>
+</project>

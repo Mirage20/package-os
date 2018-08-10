@@ -1,6 +1,6 @@
 # **OS Commands for Ballerina**
 
-## Installation Guide
+<!-- ## Installation Guide
 1. Download correct distribution.zip from [releases](https://github.com/mirage20/package-os/releases) that match with ballerina 
   version.
 2. Unzip package distribution.
@@ -9,8 +9,8 @@
 | Ballerina Version | File Connector Version |
 | ----------------- | ---------------------- |
 | 0.981.1 | 0.981.1 |
-
+-->
 ## Usage Guide
 
-See [Package](component/src/main/ballerina/os/Package.md) for usage information. 
+Please see [Package](component/src/main/ballerina/os/Package.md) for usage information. 
 

@@ -8,7 +8,10 @@ This package provides the functionality to invoke system commands and do the fil
 
 
 1. Run `ballerina pull mirage/os`
-2. 
+2. Download correct native library (wso2-os-package-\<version\>.jar) from the [releases](https://github.com/mirage20/package-os/releases)
+3. Copy the downloaded jar into <BALLERINA_HOME>/bre/lib/ directory.
+
+## Samples
 
 ### Commands and working directory
 
@@ -16,8 +19,6 @@ In this package, all of the functions use a separate working directory which is 
 To change the working directory use, 
         
     `os:cd("dir")`
-
-## Samples
 
 ### Operating with directories
 

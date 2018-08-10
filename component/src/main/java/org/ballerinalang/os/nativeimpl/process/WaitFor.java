@@ -20,9 +20,9 @@ import java.io.IOException;
  */
 @BallerinaFunction(
         orgName = "mirage",
-        packageName = "os:0.0.0",
+        packageName = "os:0.1.0",
         functionName = "waitFor",
-        receiver = @Receiver(type = TypeKind.OBJECT, structType = "Command", structPackage = "mirage/os:0.0.0"),
+        receiver = @Receiver(type = TypeKind.OBJECT, structType = "Command", structPackage = "mirage/os:0.1.0"),
         returnType = {@ReturnType(type = TypeKind.INT),
                 @ReturnType(type = TypeKind.OBJECT, structType = "error", structPackage = "ballerina.builtin")},
         isPublic = true

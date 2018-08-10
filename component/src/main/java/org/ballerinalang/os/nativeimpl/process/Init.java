@@ -19,9 +19,9 @@ import java.io.IOException;
  */
 @BallerinaFunction(
         orgName = "mirage",
-        packageName = "os:0.0.0",
+        packageName = "os:0.1.0",
         functionName = "init",
-        receiver = @Receiver(type = TypeKind.OBJECT, structType = "Command", structPackage = "mirage/os:0.0.0")
+        receiver = @Receiver(type = TypeKind.OBJECT, structType = "Command", structPackage = "mirage/os:0.1.0")
 )
 public class Init extends BlockingNativeCallableUnit {
     @Override

@@ -14,7 +14,7 @@ import org.ballerinalang.os.wrappers.file.FileWrapper;
  * Extern function mirage/os:mv.
  */
 @BallerinaFunction(
-        orgName = "mirage", packageName = "os:0.0.0",
+        orgName = "mirage", packageName = "os:0.1.0",
         functionName = "mv",
         args = {@Argument(name = "src", type = TypeKind.STRING),
                 @Argument(name = "dest", type = TypeKind.STRING)},

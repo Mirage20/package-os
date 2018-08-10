@@ -13,7 +13,7 @@ import org.ballerinalang.os.wrappers.file.FileWrapper;
  * Extern function mirage/os:chmod.
  */
 @BallerinaFunction(
-        orgName = "mirage", packageName = "os:0.0.0",
+        orgName = "mirage", packageName = "os:0.1.0",
         functionName = "chmod",
         args = {@Argument(name = "file", type = TypeKind.STRING),
                 @Argument(name = "permissions", type = TypeKind.STRING)},

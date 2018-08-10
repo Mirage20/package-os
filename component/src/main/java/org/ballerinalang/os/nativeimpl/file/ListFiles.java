@@ -13,7 +13,7 @@ import org.ballerinalang.os.wrappers.file.FileWrapper;
  * Extern function mirage/os:ls.
  */
 @BallerinaFunction(
-        orgName = "mirage", packageName = "os:0.0.0",
+        orgName = "mirage", packageName = "os:0.1.0",
         functionName = "ls",
         returnType = {@ReturnType(type = TypeKind.ARRAY, elementType = TypeKind.STRING),
                 @ReturnType(type = TypeKind.OBJECT, structType = "error", structPackage = "ballerina.builtin")},

@@ -14,7 +14,7 @@ import org.ballerinalang.os.wrappers.file.FileWrapper;
  * Extern function mirage/os:rm.
  */
 @BallerinaFunction(
-        orgName = "mirage", packageName = "os:0.0.0",
+        orgName = "mirage", packageName = "os:0.1.0",
         functionName = "rm",
         args = {@Argument(name = "file", type = TypeKind.STRING),
                 @Argument(name = "recursive", type = TypeKind.BOOLEAN)},

@@ -22,7 +22,7 @@ import java.util.List;
  */
 @BallerinaFunction(
         orgName = "mirage",
-        packageName = "os:0.0.0",
+        packageName = "os:0.1.0",
         functionName = "pipe",
         args = {@Argument(name = "processes", type = TypeKind.ARRAY, elementType = TypeKind.OBJECT)},
         returnType = {@ReturnType(type = TypeKind.ARRAY, elementType = TypeKind.BYTE), @ReturnType(type = TypeKind.INT),

@@ -14,7 +14,7 @@ import org.ballerinalang.os.wrappers.file.FileWrapper;
  * Extern function mirage/os:mkdir.
  */
 @BallerinaFunction(
-        orgName = "mirage", packageName = "os:0.0.0",
+        orgName = "mirage", packageName = "os:0.1.0",
         functionName = "mkdir",
         args = {@Argument(name = "dir", type = TypeKind.STRING),
                 @Argument(name = "createParentDirs", type = TypeKind.BOOLEAN)},

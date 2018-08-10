@@ -9,10 +9,10 @@ import org.ballerinalang.natives.annotations.ReturnType;
 import org.ballerinalang.os.wrappers.file.FileWrapper;
 
 /**
- * Extern function wso2/os:pwd.
+ * Extern function mirage/os:pwd.
  */
 @BallerinaFunction(
-        orgName = "wso2", packageName = "os:0.0.0",
+        orgName = "mirage", packageName = "os:0.0.0",
         functionName = "pwd",
         returnType = {@ReturnType(type = TypeKind.STRING)},
         isPublic = true

@@ -13,13 +13,13 @@ import org.ballerinalang.os.Utils;
 import org.ballerinalang.os.wrappers.process.ProcessWrapper;
 
 /**
- * Extern function wso2/os:Command.getStderrPipe.
+ * Extern function mirage/os:Command.getStderrPipe.
  */
 @BallerinaFunction(
-        orgName = "wso2",
+        orgName = "mirage",
         packageName = "os:0.0.0",
         functionName = "getStderrPipe",
-        receiver = @Receiver(type = TypeKind.OBJECT, structType = "Command", structPackage = "wso2/os:0.0.0"),
+        receiver = @Receiver(type = TypeKind.OBJECT, structType = "Command", structPackage = "mirage/os:0.0.0"),
         returnType = {@ReturnType(type = TypeKind.OBJECT, structType = "ByteChannel", structPackage = "ballerina/io"),
                 @ReturnType(type = TypeKind.OBJECT, structType = "error", structPackage = "ballerina.builtin")},
         isPublic = true

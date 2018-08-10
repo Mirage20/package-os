@@ -1,6 +1,14 @@
 ## Package Overview
 
+Run OS system commands.
+
 This package provides the functionality to invoke system commands and do the file operations.
+
+## Installation Guide
+
+
+1. Run `ballerina pull mirage/os`
+2. 
 
 ### Commands and working directory
 
@@ -15,7 +23,7 @@ To change the working directory use,
 
 ```ballerina
 import ballerina/io;
-import wso2/os;
+import mirage/os;
 
 function main(string... args) {
     // Print the current working directory
@@ -50,7 +58,7 @@ Current working directory is local to a worker.
 
 ```ballerina
 import ballerina/io;
-import wso2/os;
+import mirage/os;
 
 function main(string... args) {    
     worker w1 {
@@ -72,7 +80,7 @@ function main(string... args) {
 
 ```ballerina
 import ballerina/io;
-import wso2/os;
+import mirage/os;
 
 function main(string... args) {
     string[] env = ["FOO=X","BAR=Y"];
@@ -98,7 +106,7 @@ function main(string... args) {
 ```ballerina
 import ballerina/io;
 import ballerina/mime;
-import wso2/os;
+import mirage/os;
 
 function main(string... args) {
     match os:pipe(new("ls -al"), new("grep ballerina"), new("wc -l")) {

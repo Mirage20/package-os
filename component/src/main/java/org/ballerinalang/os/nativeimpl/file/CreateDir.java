@@ -11,10 +11,10 @@ import org.ballerinalang.os.Utils;
 import org.ballerinalang.os.wrappers.file.FileWrapper;
 
 /**
- * Extern function wso2/os:mkdir.
+ * Extern function mirage/os:mkdir.
  */
 @BallerinaFunction(
-        orgName = "wso2", packageName = "os:0.0.0",
+        orgName = "mirage", packageName = "os:0.0.0",
         functionName = "mkdir",
         args = {@Argument(name = "dir", type = TypeKind.STRING),
                 @Argument(name = "createParentDirs", type = TypeKind.BOOLEAN)},

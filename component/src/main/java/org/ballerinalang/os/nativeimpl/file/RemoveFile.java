@@ -11,10 +11,10 @@ import org.ballerinalang.os.Utils;
 import org.ballerinalang.os.wrappers.file.FileWrapper;
 
 /**
- * Extern function wso2/os:rm.
+ * Extern function mirage/os:rm.
  */
 @BallerinaFunction(
-        orgName = "wso2", packageName = "os:0.0.0",
+        orgName = "mirage", packageName = "os:0.0.0",
         functionName = "rm",
         args = {@Argument(name = "file", type = TypeKind.STRING),
                 @Argument(name = "recursive", type = TypeKind.BOOLEAN)},

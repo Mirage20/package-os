@@ -1,5 +1,5 @@
 import ballerina/io;
-import wso2/os;
+import mirage/os;
 
 function main(string... args) {
     io:println("Current working directory: " + os:pwd());

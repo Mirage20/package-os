@@ -15,13 +15,13 @@ import org.ballerinalang.util.exceptions.BallerinaException;
 import java.io.IOException;
 
 /**
- * Extern function wso2/os:Command.init.
+ * Extern function mirage/os:Command.init.
  */
 @BallerinaFunction(
-        orgName = "wso2",
+        orgName = "mirage",
         packageName = "os:0.0.0",
         functionName = "init",
-        receiver = @Receiver(type = TypeKind.OBJECT, structType = "Command", structPackage = "wso2/os:0.0.0")
+        receiver = @Receiver(type = TypeKind.OBJECT, structType = "Command", structPackage = "mirage/os:0.0.0")
 )
 public class Init extends BlockingNativeCallableUnit {
     @Override

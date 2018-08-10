@@ -18,10 +18,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Extern function wso2/os:pipe.
+ * Extern function mirage/os:pipe.
  */
 @BallerinaFunction(
-        orgName = "wso2",
+        orgName = "mirage",
         packageName = "os:0.0.0",
         functionName = "pipe",
         args = {@Argument(name = "processes", type = TypeKind.ARRAY, elementType = TypeKind.OBJECT)},

@@ -16,13 +16,13 @@ import org.ballerinalang.os.wrappers.process.ProcessWrapper;
 import java.io.IOException;
 
 /**
- * Extern function wso2/os:Command.waitFor.
+ * Extern function mirage/os:Command.waitFor.
  */
 @BallerinaFunction(
-        orgName = "wso2",
+        orgName = "mirage",
         packageName = "os:0.0.0",
         functionName = "waitFor",
-        receiver = @Receiver(type = TypeKind.OBJECT, structType = "Command", structPackage = "wso2/os:0.0.0"),
+        receiver = @Receiver(type = TypeKind.OBJECT, structType = "Command", structPackage = "mirage/os:0.0.0"),
         returnType = {@ReturnType(type = TypeKind.INT),
                 @ReturnType(type = TypeKind.OBJECT, structType = "error", structPackage = "ballerina.builtin")},
         isPublic = true

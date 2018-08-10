@@ -125,7 +125,7 @@
                             <sourceRoot>${basedir}/src/main/ballerina</sourceRoot>
                             <nativeCode>true</nativeCode>
                             <packageFilter>compression</packageFilter>
-                            <orgName>wso2</orgName>
+                            <orgName>mirage</orgName>
                         </configuration>
                     </execution>
                 </executions>
@@ -185,7 +185,7 @@
                             <arguments>
                                 <argument>false</argument>
                                 <argument>${basedir}/src/main/ballerina/</argument>
-                                <argument>${project.build.directory}/generated-balo/repo/wso2</argument>
+                                <argument>${project.build.directory}/generated-balo/repo/mirage</argument>
                                 <argument>${project.build.directory}</argument>
                                 <argument>${project.version}</argument>
                             </arguments>

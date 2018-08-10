@@ -1,6 +1,6 @@
 import ballerina/io;
 import ballerina/internal;
-import wso2/os;
+import mirage/os;
 
 function main(string... args) {
     // Pipe between basic Linux commands

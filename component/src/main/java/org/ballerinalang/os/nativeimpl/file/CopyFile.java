@@ -11,10 +11,10 @@ import org.ballerinalang.os.Utils;
 import org.ballerinalang.os.wrappers.file.FileWrapper;
 
 /**
- * Extern function wso2/os:cp.
+ * Extern function mirage/os:cp.
  */
 @BallerinaFunction(
-        orgName = "wso2", packageName = "os:0.0.0",
+        orgName = "mirage", packageName = "os:0.0.0",
         functionName = "cp",
         args = {@Argument(name = "src", type = TypeKind.STRING),
                 @Argument(name = "dest", type = TypeKind.STRING)},

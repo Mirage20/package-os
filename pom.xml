@@ -28,9 +28,9 @@
     <url>http://ballerinalang.org</url>
 
     <scm>
-        <url>https://github.com/wso2-ballerina/package-file.git</url>
-        <developerConnection>scm:git:https://github.com/wso2-ballerina/package-file.git</developerConnection>
-        <connection>scm:git:https://github.com/wso2-ballerina/package-file.git</connection>
+        <url>https://github.com/Mirage20/package-os.git</url>
+        <developerConnection>scm:git:https://github.com/Mirage20/package-os.git</developerConnection>
+        <connection>scm:git:https://github.com/Mirage20/package-os.git</connection>
         <tag>HEAD</tag>
     </scm>
     <modules>
